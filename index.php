@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require __DIR__ . '/functions.php';
     $characters = [
         ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
@@ -8,10 +9,13 @@
     ];
 
     if (isset($_GET['passwordCharacters'])) {
-          $cycles = $_GET['passwordCharacters'];
+        $cycles = $_GET['passwordCharacters'];
+        header('Location: http://localhost/php-strong-password-generator/newtab.php');
     };  
 
     $password = generatePassword($characters, $cycles);
+
+    $_SESSION['newPass'] = $password;
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,7 @@
         <h2 class="subtitle">Genera una password sicura</h2>
         <div class="new-password-container">
             <?php if(isset($cycles) && $cycles != "" && $cycles >= 4) { ?>
-            <p class="new-password">La tua Password è: <?php echo $password; ?></p>
+            <p class="new-password">La tua Password è: <span><?php echo $password; ?></span></p>
             <?php } else {  ?>
             <p class="new-password">Nessun parametro valido inserito - almeno 4 caratteri richiesti</p>
             <?php } ?>
@@ -37,11 +41,12 @@
         <div class="form-container">
             <form action="index.php" method="GET">
                 <div class="interact">
-                    <label for="passwordCharacters" class="password-length-label">Lunghezza:</label>
+                    <label for="passwordCharacters" class="password-length-label">Lunghezza Password:</label>
                     <input type="number" for="passwordCharacters" id="passwordCharacters" name="passwordCharacters">
                 </div>
                
-                <button type="submit">Invia</button>
+                <button type="submit" class="submit">Invia</button>
+                <button type="reset" class="reset">Annulla</button>
             </form>
         </div>
     </div>
