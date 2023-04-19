@@ -1,0 +1,62 @@
+body {
+    background-color: #001632;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    color: gray;
+    font-size: 50px;
+}
+
+.subtitle {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.form-container {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+
+    padding: 40px 0px;
+}
+
+.interact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 350px 20px 40px;
+}
+
+.password-length-label {
+    font-size: 25px;
+}
+
+input {
+    height: 40px;
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 40px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+}
+
+.new-password-container {
+    background-color: #cff4fc;
+}
+
+.new-password {
+    font-size: 20px;
+    padding: 30px 20px;
+    border-radius: 5px;
+}
